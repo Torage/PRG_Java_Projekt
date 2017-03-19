@@ -1,0 +1,36 @@
+Problem: Schriftliche Division Schritt für Schritt
+
+Ansatz: Wie beim schriftlichen Dividieren eine Zahl zum dividieren raussuchen.
+	Schauen wie oft der dividend rein passt und anschliessend mit dem dividenden multiplizieren.
+	Das Ergebnis wiederum vom divisor abziehen und die nächste Zahl vom ursprünglichen Divisor runterholen.
+	Solange wiederholen wie es geht (für mit Rest) bzw ohne Rest , setzen wenn keine Zahl vom ursprünglichen
+	Divisor übrig ist und die Differenz aber keine 0 ergeben hat und anschliessend "künstliche" nullen runterholen.
+
+Lösung: Mit Rest:
+		Die Methode divide with Remainder(int divisorValue, int dividendValue) bekommt
+		zwei int Werte.
+		Der Divisor wird in einem String gespeichert um Zeichen für Zeichen drüber iterieren zu können.
+		Die Variable possibleDivisor bekommt das erste Zeichen die widerum zu einem int geparst
+		und in der Variable subDivisor gespeichert wird.
+		Wenn der subdivisor grösser als der Dividend ist, wird er durch diesen geteilt und das Ergebnis
+		wieder mit dem dividenden multipliziert. Anschliessend wird dieses Ergebnis vom subdivisor abgezogen.
+		Dieser Differenz wird das nächste Zeichen des ursprünglichen Divisors angefügt und erneut geprüft,
+		ob er sich durch den dividenden teilen lässt. wenn nicht wird das nächste Zeichen hinzugefügt.
+		sollte die differenz mal 0 sein aber der ursprüngliche divisor noch nicht vollständig durchiteriert sein,
+		so sollen das teilen, multiplizieren und das subtrahieren mit dieser null vollzogen werden.
+		Sollte der ursprüngliche Divisor vollständig durchiteriert sein wird der Rest der übbrig bleibt in der 
+		remainder Variable als Rest gespeichert. Für den Fall das der ursprünglihe divisor kleiner als der 
+		dividend gewesen ist so sollen das teilen, multiplizieren und subtrahieren mit einer 0 durchgeführt
+		werden und der divisor als Rest deklariert werden.
+		Im Anschluss werden noch die globalen variablen resetet für die nächste berechnung und die arraylist in
+		der die benötigten ergebnise gespeichert wurden zurückgegeben.
+
+	Ohne Rest:
+		Der Anfang läuft exakt wie beim dividieren mit Rest.
+		Hier wird der Rest mit in eine while Schleife übernommen die solange weiterrechnet und "künstliche" nullen
+		runterholt bis eine der Abbruchbedingungen erreicht ist.
+		während der while Schleife wird ein counter hochgezählt der wenn er 2 erreicht (start bei -1)
+		wird abgeborchen da unsere einschränkung auf 2 Nachkommastellen war. Dem possibledivisor wird das angehängte zeichen entzogen.
+		wenn der possibledivisor bzw der remainder 0 ist werden einmal noch die rechnungen durchlaufen und anschliessend die schleife verlassen.
+		Im Anschluss werden noch die globalen variablen resetet für die nächste berechnung und die arraylist in
+		der die benötigten ergebnise gespeichert wurden zurückgegeben.
